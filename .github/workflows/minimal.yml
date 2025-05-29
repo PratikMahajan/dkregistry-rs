@@ -57,6 +57,7 @@ jobs:
   test-net-private:
     name: Test Suite (network-enabled tests)
     runs-on: ubuntu-latest
+    environment: secret
     strategy:
       matrix:
         rust:
@@ -75,7 +76,7 @@ jobs:
         with:
           toolchain: ${{ matrix.rust }}
 
-      - name: Run cargo test (test-net-private)
+      - name: Run cargo test (test-net-privat)
         run: cargo test --features test-net,test-net-private
         env:
           DKREG_QUAY_USER: ${{ secrets.DKREG_QUAY_USER }}
